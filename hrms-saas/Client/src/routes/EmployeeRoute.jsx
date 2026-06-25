@@ -1,5 +1,21 @@
-import { Outlet } from 'react-router-dom';
+import EmployeeLayout from "../layouts/EmployeeLayout";
+import ProtectedRoute from "./ProtectedRoute";
 
-export default function EmployeeRoute() {
-  return <Outlet />;
-}
+import EmployeeDashboardPage from "../features/employee/dashboard/pages/DashboardPage";
+
+export const employeeRoutes = [
+  {
+    element: <ProtectedRoute allowedRoles={["employee"]} />,
+    children: [
+      {
+        element: <EmployeeLayout />,
+        children: [
+          {
+            path: "/employee",
+            element: <EmployeeDashboardPage />,
+          },
+        ],
+      },
+    ],
+  },
+];
