@@ -1,3 +1,7 @@
-export default function AuthCard() {
-  return <div className='rounded-lg border border-slate-200 bg-slate-50 p-4 text-sm text-slate-600'>Auth card placeholder</div>;
+export default function AuthCard({ children, className = '' }) {
+  return (
+    <div className={`rounded-[24px] border border-slate-200 bg-white p-6 shadow-sm sm:p-8 ${className}`}>
+      {children}
+    </div>
+  );
 }
